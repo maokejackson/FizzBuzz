@@ -26,20 +26,26 @@ public abstract class AbstractFizzBuzz {
     }
 
     public void print() {
+        System.out.println(getString());
+    }
+
+    public String getString() {
+        StringBuilder builder = new StringBuilder();
         Vector<String> list = getList();
 
-        // print the first element
+        // add the first element
         if (!list.isEmpty()) {
-            System.out.print(list.firstElement());
+            builder.append(list.firstElement());
         }
 
-        // print the rest elements
+        // add the rest elements
         for (int index = 1, size = list.size(); index < size; index++) {
             String num = list.get(index);
-            System.out.print(", " + num);
+            builder.append(", ");
+            builder.append(num);
         }
 
-        System.out.println();   // put a new line at the end
+        return builder.toString();
     }
 
     public Vector<String> getList() {
